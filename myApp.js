@@ -11,6 +11,8 @@ app.use(frameguard({ action: "deny" }));
 const xXssProtection = require("x-xss-protection");
 app.use(xXssProtection());
 
+const dontSniffMimetype = require("dont-sniff-mimetype");
+app.use(dontSniffMimetype());
 
 
 
