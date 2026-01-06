@@ -8,6 +8,9 @@ app.use(hidePoweredBy());
 const frameguard = require("frameguard");
 app.use(frameguard({ action: "deny" }));
 
+const xXssProtection = require("x-xss-protection");
+app.use(xXssProtection());
+
 
 
 
