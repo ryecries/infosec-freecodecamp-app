@@ -39,10 +39,7 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "'trusted-cdn.com'"],
-      objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
     },
-    reportOnly: false,
   })
 );
 
