@@ -38,7 +38,7 @@ app.use(
   contentSecurityPolicy({
     directives: {
       defaultSrc: ["'self'", "default.example"],
-      scriptSrc: ["'self'", "'trusted-cdn.com'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
     },
