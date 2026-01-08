@@ -17,6 +17,13 @@ app.use(dontSniffMimetype());
 const ienoopen = require("ienoopen");
 app.use(ienoopen());
 
+const strictTransportSecurity = require("hsts");
+ninetyDaysInSeconds = 90*24*60*60;
+app.use(
+  strictTransportSecurity({
+    maxAge: ninetyDaysInSeconds, 
+  })
+);
 
 
 
