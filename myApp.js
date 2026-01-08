@@ -14,6 +14,9 @@ app.use(xXssProtection());
 const dontSniffMimetype = require("dont-sniff-mimetype");
 app.use(dontSniffMimetype());
 
+const ienoopen = require("ienoopen");
+app.use(ienoopen());
+
 
 
 
