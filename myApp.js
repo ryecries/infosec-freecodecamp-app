@@ -32,7 +32,19 @@ app.use(
 const dnsPrefetchControl = require("dns-prefetch-control");
 app.use(dnsPrefetchControl());
 
+const contentSecurityPolicy = require("helmet-csp");
 
+app.use(
+  contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'", "default.example"],
+      scriptSrc: ["'self'", "'trusted-cdn.com'"],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+    reportOnly: false,
+  })
+);
 
 
 
