@@ -37,8 +37,8 @@ const contentSecurityPolicy = require("helmet-csp");
 app.use(
   contentSecurityPolicy({
     directives: {
-      defaultSrc: ["'self'", "default.example"],
-      scriptSrc: ["'self'", "'unsafe-inline'"],
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'trusted-cdn.com'"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
     },
