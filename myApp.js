@@ -18,13 +18,16 @@ const ienoopen = require("ienoopen");
 app.use(ienoopen());
 
 const strictTransportSecurity = require("hsts");
-ninetyDaysInSeconds = 90*24*60*60;
+ninetyDays = 90*24*60*60;
 app.use(
   strictTransportSecurity({
-    maxAge: ninetyDaysInSeconds, 
+    maxAge: ninetyDays,
+    preload : true,
   })
 );
 
+const dnsPrefetchControl = require("dns-prefetch-control");
+app.use(dnsPrefetchControl());
 
 
 
