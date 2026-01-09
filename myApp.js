@@ -5,13 +5,13 @@ const app = express();
 
 app.use(nocache());
 
-// const hidePoweredBy = require("hide-powered-by");
+const hidePoweredBy = require("hide-powered-by");
 app.use(hidePoweredBy());
 
-// const frameguard = require("frameguard");
+const frameguard = require("frameguard");
 app.use(frameguard({ action: "deny" }));
 
-// const xXssProtection = require("x-xss-protection");
+const xXssProtection = require("x-xss-protection");
 app.use(xXssProtection());
 
 const dontSniffMimetype = require("dont-sniff-mimetype");
