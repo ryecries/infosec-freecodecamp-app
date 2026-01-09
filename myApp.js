@@ -1,72 +1,20 @@
 const express = require('express');
 const helmet = require('helmet');
-const nocache = require("nocache");
+// const nocache = require("nocache");
 const app = express();
 
-app.use(nocache());
+// app.use(nocache());
 
-const hidePoweredBy = require("hide-powered-by");
-app.use(hidePoweredBy());
 
-const frameguard = require("frameguard");
-app.use(frameguard({ action: "deny" }));
-
-const xXssProtection = require("x-xss-protection");
-app.use(xXssProtection());
-
-const dontSniffMimetype = require("dont-sniff-mimetype");
-app.use(dontSniffMimetype());
-
-const ienoopen = require("ienoopen");
-app.use(ienoopen());
-
-const strictTransportSecurity = require("hsts");
-ninetyDays = 90*24*60*60;
-app.use(
-  strictTransportSecurity({
-    maxAge: ninetyDays,
-    preload : true,
-  })
-);
-
-const dnsPrefetchControl = require("dns-prefetch-control");
-app.use(dnsPrefetchControl());
-
-const contentSecurityPolicy = require("helmet-csp");
-
-app.use(
-  contentSecurityPolicy({
+app.use(helmet({
+  contentSecurityPolicy: {    // enable and configure
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", 'trusted-cdn.com'],
-    },
-  })
-);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      styleSrc: ["'self'", 'trusted-cdn.com'],
+    }
+  },
+  noCache: true,               // enable
+}))
 
 
 
